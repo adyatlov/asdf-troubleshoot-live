@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Check if Go is installed
 if ! command -v go >/dev/null; then
     echo "Error: Go is not installed. Please install Go before using this plugin."

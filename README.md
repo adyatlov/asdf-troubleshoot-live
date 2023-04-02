@@ -25,7 +25,7 @@ asdf plugin add troubleshoot-live https://github.com/adyatlov/asdf-troubleshoot-
    asdf install troubleshoot-live <version>
    ```
 
-   Replace `<version>` with the desired version number (e.g., `v1.0.0`).
+   Replace `<version>` with the desired version number (e.g., `v1.0.0`) or with `latest`.
 
 2. Set the global version of troubleshoot-live:
 
@@ -36,7 +36,7 @@ asdf plugin add troubleshoot-live https://github.com/adyatlov/asdf-troubleshoot-
 3. Use troubleshoot-live:
 
    ```
-   troubleshoot-live --help
+   troubleshoot-live help
    ```
 
 For more information on how to use ASDF, check the [official documentation](https://asdf-vm.com/#/core-commands).
