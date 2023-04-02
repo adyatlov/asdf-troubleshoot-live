@@ -11,16 +11,15 @@ addons:
       - go
 
 before_install:
+  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+  - . $HOME/.asdf/asdf.sh
   - asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
   - asdf install golang latest
   - asdf global golang latest
   - go version
 
 before_script:
-  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
-  - . $HOME/.asdf/asdf.sh
   - asdf plugin add troubleshoot-live ./
-  - asdf uninstall troubleshoot-live
 
 script:
   - asdf install troubleshoot-live latest
