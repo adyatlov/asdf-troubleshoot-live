@@ -26,3 +26,5 @@ before_script:
 
 script:
   - asdf install troubleshoot-live latest
+  - asdf global troubleshoot-live latest
+  - troubleshoot-live --help
