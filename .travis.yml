@@ -23,7 +23,7 @@ install:
 
 before_script:
   - asdf plugin add troubleshoot-live ./
-  - asdf uninstall troubleshoot-live
+  - asdf list all troubleshoot-live
 
 script:
   - asdf install troubleshoot-live latest
