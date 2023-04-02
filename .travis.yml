@@ -22,6 +22,7 @@ install:
   - go version
 
 before_script:
+  - asdf plugin remove troubleshoot-live
   - asdf plugin add troubleshoot-live ./
 
 script:
