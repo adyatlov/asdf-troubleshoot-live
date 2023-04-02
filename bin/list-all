@@ -5,4 +5,4 @@ set -e
 REPO="mhrabovcin/troubleshoot-live"
 API_URL="https://api.github.com/repos/$REPO/releases"
 
-curl -s "$API_URL" | jq -r '.[].tag_name'
+curl -s "$API_URL" | jq -r '.[].tag_name' | tr '\n' ' '
