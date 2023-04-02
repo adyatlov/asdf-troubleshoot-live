@@ -25,4 +25,4 @@ before_script:
   - asdf plugin add troubleshoot-live ./
 
 script:
-  - asdf install troubleshoot-live
+  - asdf install troubleshoot-live latest
