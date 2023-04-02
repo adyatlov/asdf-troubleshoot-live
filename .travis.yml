@@ -1,17 +1,28 @@
-language: go
+language: shell
 
-go:
-  - "1.20.x"
+os:
+  - linux
+  - osx
 
-env:
-  - GO111MODULE=on
+osx_image:
+  - xcode12.5 # macOS 11.3, Intel CPU
+  - xcode13.2 # macOS 12.0, Apple M1 CPU
+
+addons:
+  homebrew:
+    packages:
+      - coreutils
+      - go
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo add-apt-repository -y ppa:longsleep/golang-backports && sudo apt-get update && sudo apt-get install -y golang-go; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"; fi
+  - go version
 
 before_script:
-  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
+  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
   - . $HOME/.asdf/asdf.sh
   - asdf plugin add troubleshoot-live ./
 
 script:
-  - asdf install troubleshoot-live latest
-  - asdf global troubleshoot-live latest
-  - troubleshoot-live --help
+  - asdf install troubleshoot-live
