@@ -20,6 +20,7 @@ install:
   - asdf global golang latest
   - unset GOROOT
   - go version
+  - echo $0
 
 before_script:
   - asdf plugin add troubleshoot-live ./
