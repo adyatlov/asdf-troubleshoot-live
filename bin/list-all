@@ -5,4 +5,4 @@ set -e
 REPO="mhrabovcin/troubleshoot-live"
 API_URL="https://api.github.com/repos/$REPO/releases"
 
-curl -s "$API_URL" | jq -r '.[].tag_name' | sed 's/^v//' | sort -u -V | tr '\n' ' '
+curl -s "$API_URL" | jq -r '.[].tag_name' | sed 's/^v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tr ' ' '\n' | sort -u -V | tr '\n' ' '
