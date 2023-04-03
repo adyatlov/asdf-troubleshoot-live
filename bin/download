@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-DOWNLOAD_FILE_NAME=v${ASDF_INSTALL_VERSION}.tar.gz
-
-curl -L -o ${ASDF_DOWNLOAD_PATH}/${DOWNLOAD_FILE_NAME} https://github.com/mhrabovcin/troubleshoot-live/archive/refs/tags/${DOWNLOAD_FILE_NAME}
-tar -xzvf ${ASDF_DOWNLOAD_PATH}/${DOWNLOAD_FILE_NAME}  -C ${ASDF_DOWNLOAD_PATH}
-
-
-#!/bin/bash
-
-set -e
 
 REPO="mhrabovcin/troubleshoot-live"
 TAG=v${ASDF_INSTALL_VERSION}
@@ -43,6 +34,6 @@ esac
 
 FILENAME="${FILENAME}.tar.gz"
 DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${TAG}/${FILENAME}"
-curl -L -o "${FILENAME}" "${DOWNLOAD_URL}"
+curl -L -o "${ASDF_DOWNLOAD_PATH}/${FILENAME}" "${DOWNLOAD_URL}"
 tar -xzvf "${FILENAME}"
 
