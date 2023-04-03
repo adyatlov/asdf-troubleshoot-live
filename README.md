@@ -5,7 +5,7 @@
 ## Prerequisites
 
 - ASDF version management tool - [installation instructions](https://asdf-vm.com/guide/getting-started.html)
-- Go 1.20 or newer - [installation instructions](https://golang.org/doc/install)
+- jq command-line JSON processor - [installation instructions](https://stedolan.github.io/jq/download/)
 
 ## Installation
 
