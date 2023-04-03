@@ -8,6 +8,12 @@ if ! command -v go >/dev/null; then
     exit 1
 fi
 
+# Check if jq is installed
+if ! command -v jq >/dev/null; then
+    echo "Error: jq is not installed. Please install jq before using this plugin."
+    exit 1
+fi
+
 # Check Go version
 GO_VERSION=$(go version | awk '{print $3}')
 REQUIRED_GO_VERSION="go1.20"
