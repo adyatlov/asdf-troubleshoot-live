@@ -25,5 +25,6 @@ fi
 # Build
 echo $ASDF_DOWNLOAD_PATH
 echo $ASDF_INSTALL_PATH
-echo $ASDF_DOWNLOAD_PATH
-go build -o $ASDF_INSTALL_PATH ${ASDF_DOWNLOAD_PATH}/troubleshoot-live-${ASDF_INSTALL_VERSION}
+cd ${ASDF_DOWNLOAD_PATH}/troubleshoot-live-${ASDF_INSTALL_VERSION}
+go build 
+mv troubleshoot-live ${ASDF_INSTALL_PATH}/troubleshoot-live
