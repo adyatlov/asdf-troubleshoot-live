@@ -35,6 +35,10 @@ esac
 FILENAME="${FILENAME}.tar.gz"
 DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${TAG}/${FILENAME}"
 cd $ASDF_DOWNLOAD_PATH
-curl -s -f -L -o "${FILENAME}" "${DOWNLOAD_URL}"
-tar -xzf "${FILENAME}"
 
+if curl -s -f -L -o "${FILENAME}" "${DOWNLOAD_URL}"; then
+  tar -xzf "${FILENAME}"
+else
+  echo "Error: curl encountered an issue while downloading ${FILENAME}. Does the version you specified exist? Exiting."
+  exit 1
+fi
