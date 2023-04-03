@@ -21,7 +21,7 @@ install:
   - unset GOROOT
   - go version
   #- curl -s https://api.github.com/repos/mhrabovcin/troubleshoot-live/releases | jq -r '.[].tag_name' | sed 's/^v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | tr ' ' '\n' | sort -u -V | tr '\n' ' '
-  - curl -s https://api.github.com/repos/mhrabovcin/troubleshoot-live/releases
+  - curl -s https://api.github.com/repos/mhrabovcin/troubleshoot-live/releases | jq -r '.[].tag_name'
 
 before_script:
   - asdf plugin add troubleshoot-live ./
