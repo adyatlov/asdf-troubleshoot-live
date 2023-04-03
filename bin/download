@@ -34,6 +34,7 @@ esac
 
 FILENAME="${FILENAME}.tar.gz"
 DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${TAG}/${FILENAME}"
-curl -L -o "${ASDF_DOWNLOAD_PATH}/${FILENAME}" "${DOWNLOAD_URL}"
+cd $ASDF_DOWNLOAD_PATH
+curl -L -o "${FILENAME}" "${DOWNLOAD_URL}"
 tar -xzvf "${FILENAME}"
 
