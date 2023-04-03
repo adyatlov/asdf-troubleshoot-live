@@ -19,8 +19,8 @@ install:
   - asdf install golang latest
   - asdf global golang latest
   - unset GOROOT
+  - export PATH=$PATH:$(go env GOPATH)
   - go version
-  - go env GOPATH
   - asdf plugin-add jq https://github.com/AZMCode/asdf-jq.git
   - asdf install jq latest
   - asdf global jq latest
