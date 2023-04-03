@@ -39,6 +39,6 @@ cd $ASDF_DOWNLOAD_PATH
 if curl -s -f -L -o "${FILENAME}" "${DOWNLOAD_URL}"; then
   tar -xzf "${FILENAME}"
 else
-  echo "Error: curl encountered an issue while downloading ${FILENAME}. Does the version you specified exist? Exiting."
+  echo "Error: curl encountered an issue while downloading ${DOWNLOAD_URL}. Does the version you specified exist? Exiting."
   exit 1
 fi
