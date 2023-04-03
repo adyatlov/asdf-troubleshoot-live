@@ -5,3 +5,44 @@ DOWNLOAD_FILE_NAME=v${ASDF_INSTALL_VERSION}.tar.gz
 
 curl -L -o ${ASDF_DOWNLOAD_PATH}/${DOWNLOAD_FILE_NAME} https://github.com/mhrabovcin/troubleshoot-live/archive/refs/tags/${DOWNLOAD_FILE_NAME}
 tar -xzvf ${ASDF_DOWNLOAD_PATH}/${DOWNLOAD_FILE_NAME}  -C ${ASDF_DOWNLOAD_PATH}
+
+
+#!/bin/bash
+
+set -e
+
+REPO="mhrabovcin/troubleshoot-live"
+TAG=v${ASDF_INSTALL_VERSION}
+FILENAME="troubleshoot-live_${TAG}_"
+
+case "$(uname -s)" in
+  Darwin*)
+    FILENAME="${FILENAME}darwin_"
+    ;;
+  Linux*)
+    FILENAME="${FILENAME}linux_"
+    ;;
+  *)
+    echo "Unsupported OS. Exiting."
+    exit 1
+    ;;
+esac
+
+case "$(uname -m)" in
+  x86_64)
+    FILENAME="${FILENAME}amd64"
+    ;;
+  arm64)
+    FILENAME="${FILENAME}arm64"
+    ;;
+  *)
+    echo "Unsupported architecture. Exiting."
+    exit 1
+    ;;
+esac
+
+FILENAME="${FILENAME}.tar.gz"
+DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${TAG}/${FILENAME}"
+curl -L -o "${FILENAME}" "${DOWNLOAD_URL}"
+tar -xzvf "${FILENAME}"
+

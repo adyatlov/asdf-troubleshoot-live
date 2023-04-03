@@ -2,30 +2,12 @@
 
 set -e
 
-# Check if Go is installed
-if ! command -v go >/dev/null; then
-    echo "Error: Go is not installed. Please install Go before using this plugin."
-    exit 1
-fi
-
 # Check if jq is installed
 if ! command -v jq >/dev/null; then
     echo "Error: jq is not installed. Please install jq before using this plugin."
     exit 1
 fi
 
-# Check Go version
-GO_VERSION=$(go version | awk '{print $3}')
-REQUIRED_GO_VERSION="go1.20"
-if [[ "$GO_VERSION" < "$REQUIRED_GO_VERSION" ]]; then
-    echo "Error: Go version $REQUIRED_GO_VERSION or newer is required. Current version: $GO_VERSION"
-    exit 1
-fi
-
 # Build
-echo $ASDF_DOWNLOAD_PATH
-echo $ASDF_INSTALL_PATH
-cd ${ASDF_DOWNLOAD_PATH}/troubleshoot-live-${ASDF_INSTALL_VERSION}
-go build
 mkdir ${ASDF_INSTALL_PATH}/bin
-mv troubleshoot-live ${ASDF_INSTALL_PATH}/bin/troubleshoot-live
+mv ${ASDF_DOWNLOAD_PATH}/troubleshoot-live ${ASDF_INSTALL_PATH}/bin/
