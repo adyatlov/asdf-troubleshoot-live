@@ -1,19 +1,64 @@
-# troubleshoot-live
+# asdf-troubleshoot-live
 
-This tool exposes K8s API resources from support bundle collected with [`troubleshoot.sh`](https://troubleshoot.sh) via locally launched API server.
+[![Build Status](https://travis-ci.com/adyatlov/asdf-troubleshoot-live.svg?branch=master)](https://travis-ci.com/adyatlov/asdf-troubleshoot-live)
 
-The tools is heavily inspired by existing [`sbctl`](https://github.com/replicatedhq/sbctl) that tries to mock the whole Kubernetes API server. The `troubleshoot-live` is using [`envtest`](https://pkg.go.dev/sigs.k8s.io/controller-runtime/pkg/envtest) package from `controller-runtime` and instead of mocking API server it launches actual K8s API server with `etcd`. It exports API resources from the support bundle to a running Kubernetes API server. The testing server is running without webhooks so there is no validation of resources by controllers that normally check on resources.
+This is an [ASDF](https://github.com/asdf-vm/asdf) plugin for the [troubleshoot-live](https://github.com/mhrabovcin/troubleshoot-live) CLI tool.
 
-The flow is the following:
+## Prerequisites
 
-- First the version of the Kubernetes API server from which was the support bundle collected is detected. The [`cluster-info`](https://troubleshoot.sh/docs/collect/cluster-info/) collector stores this information in the bundle.
-- CRDs are loaded from bundle.
-- Kubernetes API server and etcd for detected version are downloaded using the envtest.
-- Kuberentes API server is started.
-- Resources from the bundle are imported to the API server.
-- A new proxy HTTP server is launched that will expose Kubernetes API server (default on `localhost:8080`)
+- ASDF version management tool - [installation instructions](https://asdf-vm.com/guide/getting-started.html)
+- Go 1.20 or newer - [installation instructions](https://golang.org/doc/install)
 
-The proxy server allows to define on which address is the API server available. It also enables providing some custom functionality that wouldn't be possible with launched API server:
+## Installation
 
-- The `creationTimestamp` is not preserverd when imported from the bundle files. The proxy handler mutates API server responses and replaces `creationTimestamp` with data from the bundle.
-- A custom handler for serving logs data from the support bundle. This allows to use `kubectl` and other tools to retrieve logs for pods.
+To install the plugin, run the following command:
+
+```
+asdf plugin add troubleshoot-live https://github.com/adyatlov/asdf-troubleshoot-live.git
+```
+
+## Usage
+
+1. Install a specific version of troubleshoot-live:
+
+   ```
+   asdf install troubleshoot-live <version>
+   ```
+
+   Replace `<version>` with the desired version number (e.g., `v1.0.0`) or with `latest` for the latest version.
+
+   To list all the available versions launch the following command:
+
+   ```
+   asdf list all troubleshoot-live
+   ```
+
+1. Choose a version of the tool you are going to use:
+
+   Set a defaul version that will be used globally
+
+   ```
+   asdf global troubleshoot-live <version>
+   ```
+
+   Set a specific version only for a current directory and all subdirectories:
+
+   ```
+   asdf global troubleshoot-live <version>
+   ```
+
+1. Use troubleshoot-live:
+
+   ```
+   troubleshoot-live --help
+   ```
+
+For more information on how to use ASDF, check the [official documentation](https://asdf-vm.com/#/core-commands).
+
+## Contributing
+
+If you find any issues or would like to contribute to this plugin, please feel free to open an issue or create a pull request in this repository.
+
+## License
+
+This project is licensed under the [Apache License, Version 2.0](LICENSE).
