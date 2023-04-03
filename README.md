@@ -23,7 +23,7 @@ asdf plugin add troubleshoot-live https://github.com/adyatlov/asdf-troubleshoot-
    asdf install troubleshoot-live <version>
    ```
 
-   Replace `<version>` with the desired version number (e.g., `v1.0.0`) or with `latest` for the latest version.
+   Replace `<version>` with the desired version number (e.g., `0.0.10`) or with `latest` for the latest version.
 
    To list all the available versions launch the following command:
 
