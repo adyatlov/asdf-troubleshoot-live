@@ -3,5 +3,5 @@
 set -e
 DOWNLOAD_FILE_NAME=v${ASDF_INSTALL_VERSION}.tar.gz
 
-curl -L -o $DOWNLOAD_FILE_NAME https://github.com/mhrabovcin/troubleshoot-live/archive/refs/tags/${DOWNLOAD_FILE_NAME}
-tar -xzvf $DOWNLOAD_FILE_NAME -C .
+curl -L -o ${ASDF_DOWNLOAD_PATH}/${DOWNLOAD_FILE_NAME} https://github.com/mhrabovcin/troubleshoot-live/archive/refs/tags/${DOWNLOAD_FILE_NAME}
+tar -xzvf ${ASDF_DOWNLOAD_PATH}/${DOWNLOAD_FILE_NAME}  -C .
