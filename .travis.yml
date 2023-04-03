@@ -8,22 +8,13 @@ addons:
   homebrew:
     packages:
       - coreutils
-      - go
-
-before_install:
-  - git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
-  - . $HOME/.asdf/asdf.sh
-
-install:
-  - asdf plugin-add jq https://github.com/AZMCode/asdf-jq.git
-  - asdf install jq latest
-  - asdf global jq latest
+      - jq
 
 before_script:
   - asdf plugin add troubleshoot-live ./
-  - asdf list all troubleshoot-live
 
 script:
+  - asdf list all troubleshoot-live
   - asdf install troubleshoot-live latest
   - asdf global troubleshoot-live latest
   - troubleshoot-live help
