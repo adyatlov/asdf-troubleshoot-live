@@ -23,8 +23,7 @@ if [[ "$GO_VERSION" < "$REQUIRED_GO_VERSION" ]]; then
 fi
 
 # Build
+echo $ASDF_DOWNLOAD_PATH
+echo $ASDF_INSTALL_PATH
 cd $ASDF_DOWNLOAD_PATH
 go build -o $ASDF_INSTALL_PATH .
-
-# Exit with success status
-exit 0

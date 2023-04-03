@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+DOWNLOAD_FILE_NAME=v${ASDF_INSTALL_VERSION}.tar.gz
 
-git clone --depth 1 --branch v$ASDF_INSTALL_VERSION git@github.com:mhrabovcin/troubleshoot-live.git $ASDF_DOWNLOAD_PATH
+curl -L -o $DOWNLOAD_FILE_NAME https://github.com/mhrabovcin/troubleshoot-live/archive/refs/tags/${DOWNLOAD_FILE_NAME}
+tar -xzvf $DOWNLOAD_FILE_NAME -C .
