@@ -1,8 +1,6 @@
 # asdf-troubleshoot-live
 
-[![Build Status](https://travis-ci.com/adyatlov/asdf-troubleshoot-live.svg?branch=master)](https://travis-ci.com/adyatlov/asdf-troubleshoot-live)
-
-This is an [ASDF](https://github.com/asdf-vm/asdf) plugin for the [troubleshoot-live](https://github.com/mhrabovcin/troubleshoot-live) CLI tool.
+[![Build Status](https://app.travis-ci.com/adyatlov/asdf-troubleshoot-live.svg?branch=main)](https://app.travis-ci.com/adyatlov/asdf-troubleshoot-live)
 
 ## Prerequisites
 
