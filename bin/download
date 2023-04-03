@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+git clone --depth 1 --branch v$ASDF_INSTALL_VERSION git@github.com:mhrabovcin/troubleshoot-live.git $ASDF_DOWNLOAD_PATH

@@ -22,8 +22,9 @@ if [[ "$GO_VERSION" < "$REQUIRED_GO_VERSION" ]]; then
     exit 1
 fi
 
-# Download, build, and install your CLI tool
-go install "github.com/mhrabovcin/troubleshoot-live@v$ASDF_INSTALL_VERSION"
+# Build
+cd $ASDF_DOWNLOAD_PATH
+go build -o $ASDF_INSTALL_PATH .
 
 # Exit with success status
 exit 0
