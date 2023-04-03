@@ -20,6 +20,7 @@ install:
   - asdf global golang latest
   - unset GOROOT
   - go version
+  - go env GOPATH
   - asdf plugin-add jq https://github.com/AZMCode/asdf-jq.git
   - asdf install jq latest
   - asdf global jq latest
