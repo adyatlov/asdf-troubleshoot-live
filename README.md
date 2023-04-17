@@ -2,6 +2,8 @@
 
 [![Build Status](https://app.travis-ci.com/adyatlov/asdf-troubleshoot-live.svg?branch=main)](https://app.travis-ci.com/adyatlov/asdf-troubleshoot-live)
 
+ASDF plugin for [troubleshoot-live](https://github.com/mhrabovcin/troubleshoot-live)
+
 ## Prerequisites
 
 - ASDF version management tool - [installation instructions](https://asdf-vm.com/guide/getting-started.html)
@@ -42,7 +44,7 @@ asdf plugin add troubleshoot-live https://github.com/adyatlov/asdf-troubleshoot-
    Set a specific version only for a current directory and all subdirectories:
 
    ```
-   asdf global troubleshoot-live <version>
+   asdf local troubleshoot-live <version>
    ```
 
 1. Use troubleshoot-live:
